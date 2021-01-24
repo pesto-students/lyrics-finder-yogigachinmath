@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/lyrics-finder-yogigachinmath/static/css/main.7d180cbf.chunk.css",
+    "main.js": "/lyrics-finder-yogigachinmath/static/js/main.53278597.chunk.js",
+    "main.js.map": "/lyrics-finder-yogigachinmath/static/js/main.53278597.chunk.js.map",
+    "runtime-main.js": "/lyrics-finder-yogigachinmath/static/js/runtime-main.fa5032c5.js",
+    "runtime-main.js.map": "/lyrics-finder-yogigachinmath/static/js/runtime-main.fa5032c5.js.map",
+    "static/js/2.9cde768d.chunk.js": "/lyrics-finder-yogigachinmath/static/js/2.9cde768d.chunk.js",
+    "static/js/2.9cde768d.chunk.js.map": "/lyrics-finder-yogigachinmath/static/js/2.9cde768d.chunk.js.map",
+    "static/js/3.91433235.chunk.js": "/lyrics-finder-yogigachinmath/static/js/3.91433235.chunk.js",
+    "static/js/3.91433235.chunk.js.map": "/lyrics-finder-yogigachinmath/static/js/3.91433235.chunk.js.map",
+    "index.html": "/lyrics-finder-yogigachinmath/index.html",
+    "static/css/main.7d180cbf.chunk.css.map": "/lyrics-finder-yogigachinmath/static/css/main.7d180cbf.chunk.css.map",
+    "static/js/2.9cde768d.chunk.js.LICENSE.txt": "/lyrics-finder-yogigachinmath/static/js/2.9cde768d.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/lyrics-finder-yogigachinmath/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fa5032c5.js",
+    "static/js/2.9cde768d.chunk.js",
+    "static/css/main.7d180cbf.chunk.css",
+    "static/js/main.53278597.chunk.js"
+  ]
+}
