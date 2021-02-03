@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import logo from "../../assets/Logo.svg";
 import "./Navbar.css";
 import { debounce } from "lodash";
@@ -36,7 +36,7 @@ const Navbar = () => {
 function Search() {
   let [searchInput, setSearchInput] = useState();
   let [suggestion, setSuggestion] = useState({});
-  let [toDisplaySuggestions, setToDisplaySuggestions ] = useState('none');
+  let [toDisplaySuggestions, setToDisplaySuggestions ] = useState(false);
 
   const handleChange = (event) => {
     setSearchInput(event.target.value);
@@ -53,10 +53,10 @@ function Search() {
     }, 500),[]);
   
   const handleBlur = (event) => {
-    setToDisplaySuggestions('none');
+    setToDisplaySuggestions(false);
   }
   const handleFocus = (event) => {
-    setToDisplaySuggestions('block');
+    setToDisplaySuggestions(true);
   }
   return (
     <div> 
@@ -70,7 +70,7 @@ function Search() {
           onFocus = {handleFocus}
         />
       </div>
-      <div className="suggestion-box" style = {{display: toDisplaySuggestions }}>
+      <div className="suggestion-box" style = {{display: toDisplaySuggestions ? 'block' : 'none' }}>
         {/* <a> see all</a> */}
         {suggestion["data"] &&
           suggestion["data"].map((res) => (

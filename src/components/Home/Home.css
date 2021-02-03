@@ -1,0 +1,16 @@
+.homepage-wrapper{
+    background: url('../../assets/photo-1507838153414-b4b713384a76.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.content {
+    height: 85vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight:bold ;
+    font-size: 45px;
+} 
+
+span {
+    margin: 1rem 2rem;
+}
