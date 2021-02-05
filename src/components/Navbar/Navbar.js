@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useRef  } from "react";
 import logo from "../../assets/Logo.svg";
 import "./Navbar.css";
-import { debounce } from "lodash";
 
 const Navbar = () => {
   return (
@@ -37,20 +36,28 @@ function Search() {
   let [searchInput, setSearchInput] = useState();
   let [suggestion, setSuggestion] = useState({});
   let [toDisplaySuggestions, setToDisplaySuggestions ] = useState(false);
+  const inputRef = useRef('');
 
-  const handleChange = (event) => {
+  const handleChange = (event) => { 
     setSearchInput(event.target.value);
-    if (event.target.value) fetchLyrics(event.target.value);
   };
 
-  const fetchLyrics = useCallback(debounce((value) => {
-    fetch(`https://api.lyrics.ovh/suggest/${value}`)
+  const fetchLyrics = () => {
+    fetch(`https://api.lyrics.ovh/suggest/${searchInput}`)
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setSuggestion(res);
         });
-    }, 500),[]);
+    }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchInput === inputRef.current.value && searchInput !== '') {                   
+        fetchLyrics();
+      }
+    }, 500);
+  }, [searchInput])
   
   const handleBlur = (event) => {
     setToDisplaySuggestions(false);
@@ -58,12 +65,14 @@ function Search() {
   const handleFocus = (event) => {
     setToDisplaySuggestions(true);
   }
+  
   return (
     <div> 
       <div>
         <input
           className="search-input"
           type="text"
+          ref={inputRef}
           onChange={handleChange}
           placeholder="Type song title, artist or lyrics"
           onBlur = {handleBlur}

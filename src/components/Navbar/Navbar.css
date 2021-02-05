@@ -40,18 +40,23 @@
 .suggestion-box{
     position: absolute;
     max-height: 20vh;
+    width: 18em;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 1000;
 }
 .suggestion {
-    margin: 1rem;
+    margin: 1rem 0;
 }
 .suggestion ul {
     list-style-type: none;
 }
 .suggestion ul li a {
+    color: white;
     text-decoration: none;
+}
+.suggestion-details {
+    padding: 0.5rem;
 }
 
 .icon {
@@ -59,5 +64,4 @@
     height: 20px;
     width: 20px;
     display: block;
-    /* Other styles here */
 }
