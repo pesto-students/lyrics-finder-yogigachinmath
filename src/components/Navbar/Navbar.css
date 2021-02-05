@@ -1,0 +1,67 @@
+.nav-container {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.logo {
+    margin: 1rem;
+}
+.nav-left-wrapper{
+    width: 30em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.search-input{
+    height: 5vh;
+    width: 20em;
+    outline: none;
+    border-radius: 1em;
+    font-weight: bold;
+    padding-inline-end: 1rem;
+    padding-inline-start: 1rem;
+}
+.nav-items ul {
+    display: flex;
+    list-style-type: none;
+    margin-right: 2rem;
+    color: white;
+}
+.nav-items ul li{
+    margin: 2rem;
+    font-weight: bold;
+}
+.nav-items ul li a{
+    text-decoration: none;
+    color: inherit;
+}
+.suggestion-box{
+    position: absolute;
+    max-height: 20vh;
+    width: 18em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 1000;
+}
+.suggestion {
+    margin: 1rem 0;
+}
+.suggestion ul {
+    list-style-type: none;
+}
+.suggestion ul li a {
+    color: white;
+    text-decoration: none;
+}
+.suggestion-details {
+    padding: 0.5rem;
+}
+
+.icon {
+    background: url('../../assets/cancel.svg');
+    height: 20px;
+    width: 20px;
+    display: block;
+}
