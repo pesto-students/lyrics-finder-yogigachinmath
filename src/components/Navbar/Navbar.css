@@ -46,14 +46,14 @@
     z-index: 1000;
     flex-direction: column;
 }
-.suggestion {
+.suggestion-link {
     margin: 1rem 0;
     z-index: 1000;
 }
-.suggestion ul {
+.suggestion-link ul {
     list-style-type: none;
 }
-.suggestion ul li a {
+.suggestion-link ul li a {
     color: white;
     text-decoration: none;
 }

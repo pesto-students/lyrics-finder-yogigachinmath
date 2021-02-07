@@ -7,6 +7,8 @@ import "./Suggestion.css";
 function Suggestion() {
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [artists, setArtists] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   let { query } = useParams();
 
@@ -18,9 +20,37 @@ function Suggestion() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchLyrics(`https://api.lyrics.ovh/suggest/${query}`);
   }, [query]);
-
+  
+  useEffect(() => {
+    let uniqueAlbums = new Set();
+    let uniqueArtists = new Set();
+    let Artists = [];
+    let Albums = [];
+    console.log(suggestions[0]);
+    suggestions.forEach(suggestion => {
+      let obj = {
+        name:suggestion['album']['title'],
+        img:suggestion['album']['cover_small']
+      }
+      if(!uniqueAlbums.has(obj.name))
+        Albums.push(obj);
+      uniqueAlbums.add(obj.name);
+      
+      obj = {
+        name:suggestion['artist']['name'],
+        img:suggestion['artist']['picture_small']
+      }
+      if(!uniqueArtists.has(obj.name))
+        Artists.push(obj);
+      uniqueArtists.add(obj.name);
+    });
+    setAlbums(Albums);
+    setArtists(Artists);
+  },[suggestions]) 
+  
   return (
     <div>
       {isLoading ? (
@@ -47,15 +77,32 @@ function Suggestion() {
                     {suggestions &&
                       suggestions.map(
                         (res, index) =>
-                          index % 2 === 0 && <Tracks track={res} key = {res['id']} />
+                           <Tracks track={res} key = {res['id']} />
                       )}
                   </div>
                   <div className="col2">
-                    {suggestions &&
-                      suggestions.map(
-                        (res, index) =>
-                          index % 2 === 1 && <Tracks track={res} key = {res['id']} />
-                      )}
+                      <div className = "artists">
+                      <h2>Artists</h2>
+                        {artists.map(artist => (
+                          <Link to = {`/suggestion/${artist.name}`} className = "more-suggestion" key = {artist['name']}>
+                            <div className="suggestion" >
+                              <img src={`${artist.img}`} alt="album-pic" />
+                              <span>{artist.name}</span>
+                            </div>
+                            </Link>
+                        ))}
+                      </div>
+                      <div className = "albums">
+                        <h2>Albums</h2>
+                      {albums.map(album => (
+                          <Link to = {`/suggestion/${album.name}`} className = "more-suggestions"key = {album['name']}>
+                             <div className="suggestion" >
+                              <img src={`${album.img}`} alt="album-pic" />
+                              <span>{album.name}</span>
+                            </div>
+                            </Link>
+                        ))}
+                      </div>
                   </div>
                 </div>
               </div>
@@ -79,12 +126,12 @@ function Tracks({ track }) {
       >
         <div className="suggestion" key = {track["id"]}>
           <img src={`${track["album"]["cover_small"]}`} alt="album-pic" />
-            <h4>{track["title"]}</h4>
+          <div className = "track-details">
+            <span>{track["title"]}</span>
+            <span>{track["artist"]["name"]}</span>
+            </div>
         </div>
       </Link>
-        <Link className = "artist-link" to = {`/suggestion/${track["artist"]["name"]}`} style = {{ color: '#4d1b82' }}>
-            <h4>{track["artist"]["name"]}</h4>
-        </Link>
     </div>
   );
 }

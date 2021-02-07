@@ -86,7 +86,7 @@ function Search() {
         {searchInput &&  <div className = ""><Link to = {`/suggestion/${searchInput}`} className = "see-all">see all</Link></div> }
         {suggestion["data"] &&
           suggestion["data"].map((res) => (
-            <div className="suggestion" key={res["id"]}>
+            <div className="suggestion-link" key={res["id"]}>
               <ul>
                 <li>
                   <Link to = {`/lyrics/${res["artist"]["name"]}/${res["title"]}`} className = "suggestion-link">

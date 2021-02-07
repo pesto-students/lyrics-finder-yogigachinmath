@@ -21,6 +21,17 @@
 } 
 .suggestion {
     display: flex;
+    background-color: floralwhite;
+    align-items: center;
+    width: 25em;
+    text-decoration: none;
+    color: black;
+}
+/* .suggestion span {
+
+} */
+.suggestion:hover {
+    background-color: bisque;
 }
 .suggestion h4{
     color: black;
@@ -30,24 +41,25 @@
     width:100%;
 }
 .suggestions {
-    width: inherit;
+    font-size: 1em;
+    width: 100%;
 }
 .tracks {
-    background-color: floralwhite;
-    position: relative;
+    margin-left: 1rem;
 }
-.tracks:hover {
-    background-color: bisque;
+.track-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
 }
 .load-more {
-    margin: 2rem;
     display: flex;
     justify-content: center;
 }
 .wrapper {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 .artist-image {
     width: 80%;   
@@ -68,10 +80,15 @@
     margin: 1rem 0;
 }
 .col2{
-    margin-left: 0.5rem ;
+    margin-left: 1rem ;
+    display: flex;
+    flex-direction: column;
 }
-.artist-link {
-    position: absolute;
-    left: 30%;
-    top: 50%;
+.more-suggestions {
+    text-decoration: none;
+    color: black;
+    width: auto;
+}
+.col2 h2 {
+    margin: 1rem 0;
 }
