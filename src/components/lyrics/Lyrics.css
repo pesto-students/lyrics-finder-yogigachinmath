@@ -1,0 +1,35 @@
+.lyrics-wrapper {
+    background: url('../../assets/photo-1520523839897-bd0b52f945a0.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.lyrics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    width: 60%;
+    background-color: #817272;
+}
+.lyrics-box {
+    white-space: pre-wrap;
+    text-align: center;
+    margin: 3rem;
+}
+.lyrics-view {
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    line-height: 1.5rem;
+}
+
+.lyrics-details{
+    opacity: 0.9;
+    font-size: larger;
+    line-height: 1.5rem;
+
+}

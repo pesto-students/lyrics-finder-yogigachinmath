@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef  } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 import "./Navbar.css";
 
@@ -20,10 +21,10 @@ const Navbar = () => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/">Contact</a>
+              <a href="https://github.com/yogigachinmath" target = "_blank" rel = "noreferrer">Contact</a>
             </li>
             <li>
-              <a href="/">Github</a>
+              <a href="https://github.com/pesto-students/lyrics-finder-yogigachinmath" target = "_blank" rel = "noreferrer">Github</a>
             </li>
           </ul>
         </div>
@@ -46,13 +47,12 @@ function Search() {
     fetch(`https://api.lyrics.ovh/suggest/${searchInput}`)
         .then((res) => res.json())
         .then((res) => {
-          // console.log(res);
           setSuggestion(res);
         });
     }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       if (searchInput === inputRef.current.value && searchInput !== '') {                   
         fetchLyrics();
       }
@@ -60,14 +60,19 @@ function Search() {
   }, [searchInput])
   
   const handleBlur = (event) => {
-    setToDisplaySuggestions(false);
+    if( event.relatedTarget &&  ['suggestion-link', 'see-all'].includes(event.relatedTarget.className))
+      return;
+      setToDisplaySuggestions(false);
   }
   const handleFocus = (event) => {
     setToDisplaySuggestions(true);
   }
   
   return (
-    <div> 
+    <div 
+    onBlur = {handleBlur}
+    onFocus = {handleFocus}
+    > 
       <div>
         <input
           className="search-input"
@@ -75,23 +80,21 @@ function Search() {
           ref={inputRef}
           onChange={handleChange}
           placeholder="Type song title, artist or lyrics"
-          onBlur = {handleBlur}
-          onFocus = {handleFocus}
         />
       </div>
-      <div className="suggestion-box" style = {{display: toDisplaySuggestions ? 'block' : 'none' }}>
-        {/* <a> see all</a> */}
+      <div className="suggestion-box" style = {{display: toDisplaySuggestions ? 'flex' : 'none' }}>
+        {searchInput &&  <div className = ""><Link to = {`/suggestion/${searchInput}`} className = "see-all">see all</Link></div> }
         {suggestion["data"] &&
           suggestion["data"].map((res) => (
             <div className="suggestion" key={res["id"]}>
               <ul>
                 <li>
-                  <a href="/">
+                  <Link to = {`/lyrics/${res["artist"]["name"]}/${res["title"]}`} className = "suggestion-link">
                     <div className="suggestion-details">
                       <h3>{res["title"]} </h3>
                       <h5>{res["artist"]["name"]} </h5>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <hr></hr>
               </ul>
