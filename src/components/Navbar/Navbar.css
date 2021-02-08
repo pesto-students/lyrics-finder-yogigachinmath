@@ -42,13 +42,14 @@
 }
 .suggestion-box{
     position: absolute;
-    max-height: 20vh;
+    max-height: 30vh;
     width: 18em;
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 1000;
     flex-direction: column;
     background: gray;
+    margin-top: 0.2rem;
 }
 .suggestion-link {
     margin: 1rem 0;
@@ -131,8 +132,6 @@
     }
     .suggestion-box {
         width: 12em;
-        margin-top: 0.2rem;
-        max-height: 30vh;
     }
     .suggestion-link {
         margin: 1rem 0 0 0;

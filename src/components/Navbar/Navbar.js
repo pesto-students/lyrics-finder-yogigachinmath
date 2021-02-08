@@ -83,7 +83,7 @@ function Search() {
         />
       </div>
       <div className="suggestion-box" style = {{display: toDisplaySuggestions ? 'flex' : 'none' }}>
-        {searchInput &&  <div className = ""><Link to = {`/suggestion/${searchInput}`} className = "see-all">see all</Link></div> }
+        {searchInput &&  <div><Link to = {`/suggestion/${searchInput}`} className = "see-all">See all</Link></div> }
         {suggestion["data"] &&
           suggestion["data"].map((res) => (
             <div className="suggestion-link" key={res["id"]}>

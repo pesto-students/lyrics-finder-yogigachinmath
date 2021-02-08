@@ -1,0 +1,33 @@
+.loader-wrapper {
+    height: 100vh;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+.loader-wrapper h1 {
+    background: red;
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem;
+}
+.circle1{
+    background-color: rgb(179, 55, 55);
+}
+.circle2{
+    background-color: rgb(57, 57, 146);
+}
+.circle3{
+    background-color: greenyellow;
+}
+.circle {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 0.5rem;
+}
