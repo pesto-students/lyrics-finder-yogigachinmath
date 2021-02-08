@@ -23,6 +23,9 @@
     padding-inline-end: 1rem;
     padding-inline-start: 1rem;
 }
+.nav-items ul li:hover{
+    color: bisque;
+}
 .nav-items ul {
     display: flex;
     list-style-type: none;
@@ -45,6 +48,7 @@
     overflow-x: hidden;
     z-index: 1000;
     flex-direction: column;
+    background: gray;
 }
 .suggestion-link {
     margin: 1rem 0;
@@ -60,7 +64,9 @@
 .suggestion-details {
     padding: 0.5rem;
 }
-
+.suggestion-details:hover {
+    color: bisque;
+}
 .icon {
     background: url('../../assets/cancel.svg');
     height: 20px;
@@ -70,4 +76,65 @@
 .see-all {
     margin: 0.5rem 1rem;
     float: right;
+    color: white;
+}
+.see-all:hover {
+    color: bisque;
+}
+@media screen and (max-width: 840px) and (min-width: 450px) {
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+        height:20vh;
+    }
+    .nav-left-wrapper{
+        width: 100%
+    }
+    .nav-items {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width: 450px) {
+    .nav-container {
+        display: flex;
+        height:20vh;
+        flex-direction: column;
+        align-items: unset;
+    }
+    .nav-left-wrapper{
+        display: flex;
+        justify-content: flex-start;
+        width: auto;
+    }
+    .nav-items {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .nav-items ul{
+        display: flex;
+        margin-top: 1rem;
+    }
+   
+    .nav-items ul li{
+        margin: 0;
+        /* margin-right: 1.5rem; */
+        padding: 0.5rem;
+        font-size: large;
+    }
+    .search-input{
+        width: 10em;
+        font-size: medium;
+    }
+    .suggestion-box {
+        width: 12em;
+        margin-top: 0.2rem;
+        max-height: 30vh;
+    }
+    .suggestion-link {
+        margin: 1rem 0 0 0;
+    }
 }

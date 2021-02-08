@@ -23,13 +23,12 @@
     display: flex;
     background-color: floralwhite;
     align-items: center;
-    width: 25em;
+    width: auto;
     text-decoration: none;
     color: black;
+    margin-bottom:1rem ;
+    margin-right: 1rem;
 }
-/* .suggestion span {
-
-} */
 .suggestion:hover {
     background-color: bisque;
 }
@@ -84,11 +83,23 @@
     display: flex;
     flex-direction: column;
 }
-.more-suggestions {
+.more-suggestion{
     text-decoration: none;
     color: black;
     width: auto;
 }
 .col2 h2 {
     margin: 1rem 0;
+}
+@media screen and (max-width: 450px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .suggestion {
+        width: auto;
+    }
+    .artist-image {
+        flex-direction: column;
+        align-items: center;
+    }
 }
